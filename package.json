@@ -1,0 +1,18 @@
+{
+  "name": "small-deplyable-projects",
+  "version": "1.0.0",
+  "description": "For now its only url-to-qrcode generator, later i will revamp this and add multi tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "express": "^5.2.1",
+    "qrcode": "^1.5.4"
+  }
+}

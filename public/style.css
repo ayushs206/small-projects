@@ -1,0 +1,40 @@
+body {
+    background: #0f0f0f;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #facc15;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+img {
+    margin-top: 15px;
+    width: 200px;
+}

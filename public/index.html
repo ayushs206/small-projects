@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL to QR Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>URL → QR Code</h2>
+
+        <input type="text" id="url" placeholder="Enter URL">
+        <button onclick="generateQR()">Generate</button>
+
+        <div id="result"></div>
+        <a id="downloadBtn" style="display:none;" download="qrcode.png">
+            <button style="margin-top:10px;width:100%;">Download QR</button>
+        </a>
+
+    </div>
+
+    <script>
+        async function generateQR() {
+            const url = document.getElementById("url").value;
+            const result = document.getElementById("result");
+            const downloadBtn = document.getElementById("downloadBtn");
+
+            result.innerHTML = "Generating...";
+            downloadBtn.style.display = "none";
+
+            const res = await fetch("/generate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ url })
+            });
+
+            const data = await res.json();
+
+            if (data.qr) {
+                result.innerHTML = `<img id="qrImg" src="${data.qr}" alt="QR Code">`;
+                downloadBtn.href = data.qr;
+                downloadBtn.style.display = "block";
+            } else {
+                result.innerHTML = `<p>${data.error}</p>`;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
